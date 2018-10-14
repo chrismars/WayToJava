@@ -7,3 +7,5 @@ Where there is Java, there is a way to java.
 美工+前端：金美辰和李玉琳
 后台技术主管：曾晖
 后台技术成员：万苗、于珏
+
+注：武汉大学开源软件工程
