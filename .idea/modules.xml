@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WayToJava.iml" filepath="$PROJECT_DIR$/.idea/WayToJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/way-to-java-eureka-client/way-to-java-eureka-client.iml" filepath="$PROJECT_DIR$/way-to-java-eureka-client/way-to-java-eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/way-to-java-eureka-server/way-to-java-eureka-server.iml" filepath="$PROJECT_DIR$/way-to-java-eureka-server/way-to-java-eureka-server.iml" />
+    </modules>
+  </component>
+</project>
