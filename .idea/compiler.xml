@@ -9,12 +9,14 @@
         <module name="way-to-java-eureka-client" />
         <module name="way-to-java-eureka-server" />
         <module name="way-to-java-service-ribbon" />
+        <module name="way-to-java-service-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="way-to-java-eureka-client" target="1.8" />
       <module name="way-to-java-eureka-server" target="1.8" />
       <module name="way-to-java-service-ribbon" target="1.8" />
+      <module name="way-to-java-service-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

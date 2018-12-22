@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/way-to-java-eureka-client/pom.xml" />
         <option value="$PROJECT_DIR$/way-to-java-service-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/way-to-java-service-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/way-to-java-eureka-server/pom.xml" />
       </list>
     </option>

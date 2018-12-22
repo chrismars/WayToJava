@@ -10,9 +10,9 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    #å…³é—­æ³¨å†Œä¸­å¿ƒè‡ªæˆ‘ä¿æŠ¤æœºåˆ¶
+    #¹Ø±Õ×¢²áÖĞĞÄ×ÔÎÒ±£»¤»úÖÆ
     enable-self-preservation: false
-    #æ³¨å†Œä¸­å¿ƒæ¸…ç†é—´éš”ï¼ˆå•ä½æ¯«ç§’ï¼Œé»˜è®¤60*1000ï¼‰
+    #×¢²áÖĞĞÄÇåÀí¼ä¸ô£¨µ¥Î»ºÁÃë£¬Ä¬ÈÏ60*1000£©
     eviction-interval-timer-in-ms: 10000
 spring:
   application:

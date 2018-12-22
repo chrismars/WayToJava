@@ -13,4 +13,11 @@ public interface HelloService {
      * @return 打招呼内容
      */
     String sayHello(String name);
+
+    /**
+     * 服务失效断路器调用的方法
+     * @param name 姓名
+     * @return 错误信息
+     */
+    String hiError(String name);
 }
