@@ -3,12 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/way-to-java-discussion" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/way-to-java-eureka-client" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/way-to-java-eureka-client/src/main/resources/application.yaml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/way-to-java-eureka-client/src/main/resources/application.yaml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/way-to-java-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/way-to-java-eureka-server/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/way-to-java-learning" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/way-to-java-service-ribbon" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/way-to-java-service-zuul" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/way-to-java-service-zuul/src/main/resources/application.yaml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/way-to-java-service-zuul/src/main/resources/application.yaml" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
