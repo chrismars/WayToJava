@@ -6,15 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="way-to-java-discussion" />
         <module name="way-to-java-eureka-client" />
         <module name="way-to-java-eureka-server" />
+        <module name="way-to-java-learning" />
         <module name="way-to-java-service-ribbon" />
         <module name="way-to-java-service-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="way-to-java-config-server" target="1.8" />
+      <module name="way-to-java-discussion" target="1.8" />
       <module name="way-to-java-eureka-client" target="1.8" />
       <module name="way-to-java-eureka-server" target="1.8" />
+      <module name="way-to-java-learning" target="1.8" />
       <module name="way-to-java-service-ribbon" target="1.8" />
       <module name="way-to-java-service-zuul" target="1.8" />
     </bytecodeTargetLevel>

@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/way-to-java-service-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/way-to-java-service-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/way-to-java-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/way-to-java-learning/pom.xml" />
+        <option value="$PROJECT_DIR$/way-to-java-discussion/pom.xml" />
       </list>
     </option>
   </component>

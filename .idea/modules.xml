@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/WayToJava.iml" filepath="$PROJECT_DIR$/.idea/WayToJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/way-to-java-discussion/way-to-java-discussion.iml" filepath="$PROJECT_DIR$/way-to-java-discussion/way-to-java-discussion.iml" />
       <module fileurl="file://$PROJECT_DIR$/way-to-java-eureka-client/way-to-java-eureka-client.iml" filepath="$PROJECT_DIR$/way-to-java-eureka-client/way-to-java-eureka-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/way-to-java-eureka-server/way-to-java-eureka-server.iml" filepath="$PROJECT_DIR$/way-to-java-eureka-server/way-to-java-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/way-to-java-learning/way-to-java-learning.iml" filepath="$PROJECT_DIR$/way-to-java-learning/way-to-java-learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/way-to-java-service-ribbon/way-to-java-service-ribbon.iml" filepath="$PROJECT_DIR$/way-to-java-service-ribbon/way-to-java-service-ribbon.iml" />
       <module fileurl="file://$PROJECT_DIR$/way-to-java-service-zuul/way-to-java-service-zuul.iml" filepath="$PROJECT_DIR$/way-to-java-service-zuul/way-to-java-service-zuul.iml" />
     </modules>
