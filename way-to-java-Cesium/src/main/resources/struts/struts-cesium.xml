@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="struts-cesium"  extends="app" namespace="/cesium">
+        <action name="addMessage" method="addMessage" class="app.sys.uplaodPic.action.userAction">
+        </action>
+        <action name="getObjectMessage" method="getObjectMessage" class="app.sys.uplaodPic.action.CesiumAction">
+        </action>
+        <action name="getAttributeMessage" method="getAttributeMessage" class="app.sys.uplaodPic.action.CesiumAction">
+        </action>
+    </package>
+</struts>

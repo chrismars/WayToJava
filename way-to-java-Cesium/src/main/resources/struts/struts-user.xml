@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="struts-user"  extends="app" namespace="/user">
+        <action name="user" method="uploadUserMessage" class="app.sys.uplaodPic.action.userAction">
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">14780339510</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+        <action name="addMessage" method="addMessage" class="app.sys.uplaodPic.action.userAction">
+        </action>
+        <action name="getAttachMessage" method="getAttachMessage" class="app.sys.uplaodPic.action.userAction">
+        </action>
+        <action name="alterMessage" method="alterMessage" class="app.sys.uplaodPic.action.userAction">
+        </action>
+        <action name="deleteMessage" method="deleteMessage" class="app.sys.uplaodPic.action.userAction">
+        </action>
+
+        <action name="getMobileId" method="getMobileId" class="app.sys.uplaodPic.action.userAction">
+        </action>
+    </package>
+</struts>

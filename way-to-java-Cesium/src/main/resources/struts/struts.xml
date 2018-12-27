@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="pageoffice" extends="struts-default">
+		<action name="openword" class="app.sys.word.WordDemo" method="openword">
+			<result name="openword_success">/editword.jsp</result>
+		</action>
+		
+		<action name="saveword" class="app.sys.word.WordDemo" method="saveword">
+			<result name="saveword_success">/savefile.jsp</result>
+		</action>
+		<action name="openexcel" class="app.sys.word.ExcelDemo" method="openexcel">
+			<result name="openexcel_success">/editexcel.jsp</result>
+		</action>
+		
+		<action name="saveexcel" class="app.sys.word.ExcelDemo" method="saveexcel">
+			<result name="saveexcel_success">/savefile.jsp</result>
+		</action>
+	</package>
+
+</struts>    
