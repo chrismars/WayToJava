@@ -1,0 +1,30 @@
+.knowledgePanel{
+    width: 80%;
+    height: 150px;
+    border-radius: 20px;
+    background: #d9edf7;
+    margin: 30px;
+}
+
+.knowledgeName{
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Helvetica;
+    color: #337ab7;
+    cursor: pointer;
+    float: right;
+    margin: 20px
+}
+
+.konw-icon{
+    margin: 20px
+}
+
+.know-description{
+    padding: 10px
+}
+
+.panel-heading{
+    font-size: 20px;
+    padding: 0
+}
