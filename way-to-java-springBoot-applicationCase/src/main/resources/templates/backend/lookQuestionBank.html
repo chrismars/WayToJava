@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>试题列表</h2>
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>题目</th>
+            <th>文字解答</th>
+            <th>难度</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="t : ${testQuestionsList}">
+            <th scope="row" th:text="${t==null?'':t.id}">1</th>
+            <td th:utext="${t==null?'':t.question}">neo</td>
+            <td th:utext="${t==null?'':t.answer}">Otto</td>
+            <td th:text="${t==null?'':(t.difficulty==0?'基础题':(t.difficulty==1?'中档题':(t.difficulty==2?'难度题':'error')))}">6</td>
+            <td><a th:href="@{/backend/manage/updateQuestionBankPage(id=${t.id})}">编辑</a></td>
+            <td><a th:href="@{/backend/manage/deleteQuestionBank(id=${t.id})}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script>
+    function edit(t) {
+        $.ajax({
+            url: '/backend/getQuestionBank',
+            type: 'post',
+            data: t.serialize(),
+            dataType: 'text',
+            success: function () {
+
+            }, error: function () {
+                alert("出错了")
+            }
+        })
+
+    }
+</script>
+</html>

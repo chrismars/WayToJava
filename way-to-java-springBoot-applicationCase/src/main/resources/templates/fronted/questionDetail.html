@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #191919
+        }
+        .m {
+            width: 740px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="/fronted/head.html::html"></div>
+<div class="m">
+    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="740" height="400"
+           poster="m.png" data-setup="{}">
+        <source src="
+https://miao37.oss-cn-shenzhen.aliyuncs.com/ff79d57891d14b8e80df084aad1b8fa6.mp4" type="video/mp4">
+        <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a> </p>
+    </video>
+    <script th:src="@{/static/js/video.min.js(path=${#servletContext})}"></script>
+    <script src="http://vjs.zencdn.net/5.19/lang/zh-CN.js"></script>
+    <script type="text/javascript">
+        var myPlayer = videojs('my-video');
+        videojs("my-video").ready(function(){
+            var myPlayer = this;
+            myPlayer.play();
+        });
+
+    </script>
+</div>
+<link th:href="@{/static/css/video-default.css(path=${#servletContext})}" rel="stylesheet">
+<link th:href="@{/static/css/video-js.css(path=${#servletContext})}" rel="stylesheet">
+</body>
+</html>

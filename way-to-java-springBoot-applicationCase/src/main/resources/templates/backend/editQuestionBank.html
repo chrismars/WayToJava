@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/static/summernote/summernote.css(path=${#servletContext})}" rel="stylesheet"/>
+    <script th:src="@{/static/summernote/summernote.js(path=${#servletContext})}" type="text/javascript"></script>
+    <script th:src="@{/static/ajaxfileupload.js(path=${#servletContext})}" type="text/javascript"></script>
+</head>
+<body>
+<form class="form-horizontal" role="form" enctype="multipart/form-data" id="questionUploadForm">
+    <div class="form-group">
+        <label class="control-label" for="subjectId">学科</label>
+        <select id="subjectId" name="subjectId" class="form-control">
+            <option th:each="s:${subjectList}" th:value="${s.id}" th:text="${s.subjectName}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="gradeId">年级</label>
+        <select id="gradeId" name="gradeId" class="form-control">
+            <option th:each="g:${gradeList}" th:value="${g.id}" th:text="${g.gradeName}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="difficulty">难度</label>
+        <select id="difficulty" name="difficulty" class="form-control">
+            <option value="0">基础题</option>
+            <option value="1">中档题</option>
+            <option value="2">难度题</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="type">类型</label>
+        <select id="type" name="type" class="form-control">
+            <option value="0">选择题</option>
+            <option value="1">填空题</option>
+            <option value="2">判断题</option>
+            <option value="3">解答题</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inputfile">选择解答视频</label>
+        <input type="file" id="inputfile" name="file">
+        选择后请点击上传按钮上传
+        <input type="button" id="fileUpload" value="上传">
+    </div>
+    <div class="form-group" style="display: none">
+        <input name="videoUrl" id="videoUrl">
+    </div>
+    <div class="form-group">
+        <label for="question">题目</label>
+        <textarea id="question" name="question"></textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="answer">书面解答</label>
+        <textarea id="answer" name="answer"></textarea>
+
+    </div>
+    <button type="button" class="offset-sm-2" id="uploadQuestion">上传试题</button>
+</form>
+</body>
+
+<script type="text/javascript" th:inline="javascript">
+    $(document).ready(function () {
+        $("#question").summernote({
+            height:200
+        });
+        $("#answer").summernote({
+            height:200
+        });
+    });
+
+
+    $("#fileUpload").click(function () {
+        $.ajaxFileUpload({
+            url: '/backend/manage/uploadFile',
+            secureuri: false,
+            fileElementId: 'inputfile',
+            dataType: 'text',
+            success: function (data) {
+                $("#videoUrl").val(data);
+                alert("上传成功")
+            }
+        })
+    })
+
+    $("#uploadQuestion").click(function () {
+        $.ajax({
+            url: '/backend/manage/updateQuestionBank',
+            type: 'post',
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            data: $("#questionUploadForm").serialize(),
+            dataType: 'text',
+            success: function (data) {
+                if (data == 200) {
+                    alert("上传成功")
+                    location.href = "/backend/manage/menu"
+                } else alert("上传失败")
+            }
+
+        })
+
+
+    })
+
+
+</script>
+
+</html>

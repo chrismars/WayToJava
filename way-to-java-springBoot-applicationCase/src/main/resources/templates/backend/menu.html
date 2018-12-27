@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="/backend/head.html::html"></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-end">
+    <a class="navbar-brand" href="#" style="margin-right: 35%">视频后台管理系统</a>
+    <ul class="nav" style="float: right">
+        <span class="navbar-text">
+        你好,
+        </span>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:text="${user==null?'':user.nickname}">xx</a>
+        </li>
+        <button type="button" class="tn btn-success" onclick="logout()">
+            安全退出
+        </button>
+
+        </div>
+    </ul>
+</nav>
+<!-- 页面主体 -->
+<div class="container-fluid" style="margin-top:80px">
+    <!-- 导航 -->
+    <div class="row">
+
+        <ul class="nav flex-column nav-tabs nav-pills bg-light col-md-2 " id="navPanel">
+            <li class="nav-item"><a class="nav-link active" id='look' data-toggle="tab" href="#lookPanel">查看题目</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id='edit' data-toggle="tab" href="#editPanel">上传题目</a></li>
+        </ul>
+        <!-- 显示切换区 -->
+        <div id="myTabContent" class="tab-content col-md-8 offset-md-1">
+            <div class="container tab-pane active" id="lookPanel">
+                <script>
+                    $('#lookPanel').load("lookQuestionBank.html");		//引入查看题目
+                </script>
+            </div>
+
+            <div class="container tab-pane fade" id="editPanel">
+                <!-- 上传试题界面 -->
+                <script>
+                    $('#editPanel').load("editQuestionBank.html");		//编辑题目界面
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div th:replace="/backend/foot.html::html"></div>
+</body>
+
+<script type="text/javascript" th:inline="javascript">
+
+    function logout() {
+
+        $.ajax({
+            url: '/backend/logout',
+            type: 'get',
+            async: false,
+            data: null,
+            dataType: 'text',
+            success: function (text) {
+                if (text == 200) {
+                    alert("退出成功");
+                    window.location.href = "/backend/index";
+                }
+                else {
+                    alert("退出失败");
+                }
+            },
+            error: function () {
+                alert("出错了");
+            }
+        })
+    }
+</script>
+</html>

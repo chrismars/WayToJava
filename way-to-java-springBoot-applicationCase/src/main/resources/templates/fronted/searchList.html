@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="/fronted/head.html::html"></div>
+<ul class="list-group">
+<li class="list-group-item" th:each="t:${testQuestionsList}" th:utext="${t.question}+'<button class=\'btn btn-dark\' style=\'float:right\' onclick=getDetail()>视频解答</button>'"></li>
+</ul>
+</body>
+<script>
+    function getDetail() {
+        window.location.href="/front/question/detail"
+    }
+    </script>
+</html>

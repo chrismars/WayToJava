@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>视频题库系统</title>
+</head>
+<body>
+
+<div th:replace="/fronted/head.html::html"></div>
+<!--登录模态框-->
+<div class="modal fade" id="f-register-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">快速注册请注意格式</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <form name="form2" id="userRegisterForm" accept-charset="utf-8" th:align="center">
+                    <div class="form-group">
+                        <label for="nickname">昵称：</label>
+                        <input type="text" id="nickname" name="nickname" maxlength="16"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="input-tips2">邮箱：</label>
+                        <input type="email" id="email" name="email" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>密码：</label>
+                        <input type="password" name="password" maxlength="16"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>确认密码：</label>
+                        <input type="password" name="password2" maxlength="16"
+                               class="form-control"/>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="register()">注册</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--登录模态框-->
+<div class="modal fade" id="f-login-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">登录</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <form th:align="center" id="userLoginForm">
+                    <div class="form-group">
+                        <label for="u">账号:</label>
+                        <input type="text" id="u" name="email" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="f-l-password">密码:</label>
+                        <input type="password" id="f-l-password" name="password" class="form-control"/>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="login()">登录</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-end">
+    <a class="navbar-brand" href="#" style="margin-right: 35%">视频题库系统</a>
+    <ul class="nav">
+        <button class="tn btn-success" data-toggle="modal" data-target="#f-login-modal">登录</button>
+        <button class="tn btn-success" data-toggle="modal" data-target="#f-register-modal">注册</button>
+    </ul>
+</nav>
+<div style="margin-top: 200px" class="container" align="center"><h1>欢迎访问视频题库系统</h1>
+</div>
+
+
+</body>
+<script>
+    function login() {
+
+        $.ajax({
+                url: '/front/login',
+                type: 'post',
+                async: false,
+                data: $("#userLoginForm").serialize(),
+                dataType: 'text',
+                success: function (text) {
+                    if (text == 200) {
+                        location.href = "/front/question/lookQuestion";
+                    }
+                    else {
+                        alert("账户名或密码错误");
+                        $("#f-l-password").val("");
+                    }
+                },
+                error: function (XMLHttpRequest) {
+                    alert(XMLHttpRequest.status)
+                }
+            }
+        )
+
+
+    }
+
+    function register() {
+        $.ajax({
+                url: '/front/register',
+                type: 'post',
+                async: false,
+                data: $("#userLoginForm").serialize(),
+                dataType: 'text',
+                success: function (text) {
+                    if (text == 200) {
+                        location.href = "/front/question/lookQuestion";
+                    }
+                    else {
+                        alert("注册失败")
+                    }
+                },
+                error: function (XMLHttpRequest) {
+                    alert(XMLHttpRequest.status)
+                }
+            }
+        )
+    }
+</script>
+</html>

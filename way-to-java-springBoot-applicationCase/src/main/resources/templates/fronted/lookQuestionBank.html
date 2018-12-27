@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+
+<div>
+    <div th:replace="/fronted/head.html::html"></div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-end">
+        <a class="navbar-brand" href="#" style="margin-right: 35%">视频题库系统</a>
+        <ul class="nav" style="float: right">
+        <span class="navbar-text">
+        你好,
+        </span>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:text="${user==null?'':user.nickname}">xx</a>
+            </li>
+            <button type="button" class="tn btn-success" onclick="logout()">
+                安全退出
+            </button>
+
+
+        </ul>
+    </nav>
+</div>
+<div class="container-fluid" style="margin-top: 80px">
+    <div class="col-md-10 offset-md-1">
+        <ul class="list-group">
+            <!--<%&#45;&#45;类别选择列表&#45;&#45;%>-->
+            <li class="list-group-item">
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-dark" disabled>年级：</button>
+                    <button type="button" class="btn btn-outline-dark btn-grade active" value="0"
+                            onclick="btnGradeClick(this)">全部
+                    </button>
+                    <button type="button" class="btn btn-outline-dark btn-grade" th:each="g:${gradeList}"
+                            th:value="${g.id}"
+                            th:text="${g.gradeName}" onclick="btnGradeClick(this)">#
+                    </button>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-dark" disabled>科目：</button>
+                    <button type="button" class="btn btn-outline-dark active" value="0" onclick="btnSubjectClick(this)">全部
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" th:each="s:${subjectList}" th:value="${s.id}"
+                            th:text="${s.subjectName}" onclick="btnSubjectClick(this)">#
+                    </button>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-dark" disabled>难度等级：</button>
+                    <button type="button" class="btn btn-outline-dark active" value="0" onclick="btnDifficultyClick(this)">全部</button>
+                    <button type="button" class="btn btn-outline-dark" value="1" onclick="btnDifficultyClick(this)">基础题</button>
+                    <button type="button" class="btn btn-outline-dark" value="2" onclick="btnDifficultyClick(this)">中档题</button>
+                    <button type="button" class="btn btn-outline-dark" value="3" onclick="btnDifficultyClick(this)">难度题</button>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-dark" disabled>题型：</button>
+                    <button type="button" class="btn btn-outline-dark active" value="0" onclick="btnTypeClick(this)">全部
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" value="0" onclick="btnTypeClick(this)">选择</button>
+                    <button type="button" class="btn btn-outline-dark" value="1" onclick="btnTypeClick(this)">填空</button>
+                    <button type="button" class="btn btn-outline-dark" value="2" onclick="btnTypeClick(this)">判断</button>
+                    <button type="button" class="btn btn-outline-dark" value="3" onclick="btnTypeClick(this)">解答</button>
+                </div>
+            </li>
+        </ul>
+        <div id="questionCategory">
+            <script>
+                $('#questionCategory').load("searchList.html");		//编辑题目界面
+            </script>
+        </div>
+
+
+        <!--分页-->
+        <!--<ul class="pagination">-->
+        <!--<li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+        <!--</ul>-->
+    </div>
+</div>
+</body>
+
+<script>
+    function logout() {
+
+        $.ajax({
+            url: '/front/logout',
+            type: 'get',
+            async: false,
+            data: null,
+            dataType: 'text',
+            success: function (text) {
+                if (text == 200) {
+                    alert("退出成功");
+                    window.location.href = "/front/index";
+                }
+                else {
+                    alert("退出失败");
+                }
+            },
+            error: function () {
+                alert("出错了");
+            }
+        })
+    }
+
+    function btnGradeClick(e) {
+        $(e).addClass('active').siblings().removeClass('active');
+    }
+
+    function btnSubjectClick(e) {
+        $(e).addClass('active').siblings().removeClass('active');
+    }
+
+    function btnDifficultyClick(e) {
+        $(e).addClass('active').siblings().removeClass('active');
+    }
+
+    function btnTypeClick(e) {
+        $(e).addClass('active').siblings().removeClass('active');
+    }
+</script>
+</html>

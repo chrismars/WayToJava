@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div th:replace="/backend/head.html::html"></div>
+
+<div class="col-md-8 offset-md-2" style="height: 100%">
+    <div class="row">
+        <a th:href="@{/backend/manage/menu}" class="offset-md-11"><h3>返回</h3></a>
+    </div>
+    <form class="form-horizontal" role="form" enctype="multipart/form-data" id="questionUploadForm2">
+        <h3>试题编辑</h3>
+        <hr/>
+        <input name="id" th:value="${testQuestions.id}" type="hidden">
+        <div class="form-group">
+            <label class="control-label">学科</label>
+            <select id="subjectId" name="subjectId" class="form-control">
+                <option th:each="s:${subjectList}" th:value="${s.id}" th:text="${s.subjectName}"
+                        th:selected="${testQuestions.subjectId==s.id}"></option>
+            </select>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+            <label class="control-label">年级</label>
+            <select id="gradeId" class="form-control" name="gradeId">
+                <option th:each="g:${gradeList}" th:value="${g.id}" th:text="${g.gradeName}"
+                        th:selected="${testQuestions.gradeId==g.id}"></option>
+            </select>
+
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+            <label class="control-label">难度</label>
+            <select id="difficulty" name="difficulty" class="form-control">
+                <option value="0" th:selected="${testQuestions.difficulty==0}">基础题</option>
+                <option value="1" th:selected="${testQuestions.difficulty==1}">中档题</option>
+                <option value="2" th:selected="${testQuestions.difficulty==2}">难度题</option>
+            </select>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+            <label class="control-label">类型</label>
+            <select id="type" name="type" th:value="${testQuestions.getType()}" class="form-control">
+                <option value="0" th:selected="${testQuestions.type==0}">选择</option>
+                <option value="1" th:selected="${testQuestions.type==1}">填空</option>
+                <option value="2" th:selected="${testQuestions.type==2}">判断</option>
+                <option value="3" th:selected="${testQuestions.type==3 }">解答</option>
+            </select>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+
+        <div class="form-group">
+            <label for="inputfile">选择视频</label>
+            <input type="file" id="inputfile" name="file">
+            选择后请点击上传按钮
+            <input type="button" id="fileUpload" value="上传">
+        </div>
+        <div class="form-group" style="display: none">
+            <input name="videoUrl" id="videoUrl" th:value="${testQuestions.videoUrl}">
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">题目</label>
+            <textarea id="ques" name="question" th:utext="${testQuestions.getQuestion()}"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">书面解答</label>
+            <textarea id="answer2" name="answer" th:utext="${testQuestions.getAnswer()}"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <button type="button" class="btn btn-default" id="uploadQuestion" onclick="update()">确认修改</button>
+        </div>
+
+    </form>
+</div>
+<link th:href="@{/static/summernote/summernote.css(path=${#servletContext})}" rel="stylesheet"/>
+<script th:src="@{/static/summernote/summernote.js(path=${#servletContext})}" type="text/javascript"></script>
+<script th:src="@{/static/ajaxfileupload.js(path=${#servletContext})}" type="text/javascript"></script>
+
+</body>
+<script type="text/javascript" th:inline="javascript">
+    $(document).ready(function () {
+        $("#ques").summernote({
+            height: 200
+        });
+        $("#answer2").summernote({
+            height: 200
+        });
+    });
+
+    $("#fileUpload").click(function () {
+        $.ajaxFileUpload({
+            url: '/backend/manage/uploadFile',
+            secureuri: false,
+            fileElementId: 'inputfile',
+            dataType: 'text',
+            success: function (data) {
+                $("#videoUrl").val(data);
+                alert("上传成功")
+            }
+        })
+    })
+
+    $("#uploadQuestion").click(function () {
+        $.ajax({
+            url: '/backend/manage/uploadQuestions',
+            type: 'post',
+            data: $("#questionUploadForm").serialize(),
+            dataType: 'text',
+            success: function (data) {
+                if (data == 200) {
+                    alert("上传成功")
+                    location.href = "/backend/manage/menu"
+                } else alert("上传失败")
+            }
+
+        })
+    })
+
+    function update() {
+        $.ajax({
+            url: '/backend/manage/updateQuestionBank',
+            type: 'post',
+            async: false,
+            data: $("#questionUploadForm2").serialize(),
+            dataType: 'text',
+            success: function (data) {
+                if (data == 200) {
+                    alert("更新成功")
+                    location.href = "/backend/manage/menu"
+                } else alert("更新失败")
+            },
+            error: function (data) {
+                alert("出错了")
+            }
+        })
+    }
+
+</script>
+</html>
