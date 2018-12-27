@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/layui.js"></script>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+</head>
+<body>
+<ul class="layui-nav layui-bg-cyan">
+    <li class="layui-nav-item" style="width: 200px">
+        <span style="font-size: 30px; font-family: Cambria">
+            WAY TO JAVA
+        </span>
+    </li>
+    <li class="layui-nav-item layui-nav-item-selected" style="width: 18%; text-align: center">
+        <a href="">学习主页</a>
+    </li>
+    <li class="layui-nav-item" style="width: 18%; text-align: center">
+        <a href="">学习小组</a>
+    </li>
+    <li class="layui-nav-item" style="width: 18%; text-align: center">
+        <a href="">交流论坛<span class="layui-badge-dot"></span></a>
+    </li>
+    <li class="layui-nav-item" style="width: 18%; text-align: center">
+        <a href="">学习记录<span class="layui-badge-dot"></span></a>
+    </li>
+    <li class="layui-nav-item" style="float: right">
+        <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">个人中心</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">编辑信息</a></dd>
+            <dd><a href="javascript:;">切换账号</a></dd>
+            <dd><a href="javascript:;">退出登录</a></dd>
+        </dl>
+    </li>
+</ul>
+<div>
+    <div style="width: 15%; float: left">
+        <ul class="layui-nav layui-nav-tree layui-bg-cyan" lay-filter="test" style="height: 100%">
+            <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">Java学习</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">Java基础</a></dd>
+                    <dd><a href="">Java中级</a></dd>
+                    <dd><a href="">Java高级</a></dd>
+                    <dd><a href="">Java应用</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">前端学习</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">前端基础</a></dd>
+                    <dd><a href="">UI框架</a></dd>
+                    <dd><a href="">JS框架</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">数据库</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">工具和中间件</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">JAVA框架</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">实践项目</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">面试题</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">笔试题</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">关于本站</a>
+            </li>
+        </ul>
+    </div>
+    <div style="width: 85%; float: left;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Java基础
+            </div>
+            <div class="panel-body">
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【Hello World】</span>
+                        <p class="know-description">通过Hello World来进入Java的世界吧，可以选择集成开发环境或者自己在命令行运行哦！</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【对象和类】</span>
+                        <p class="know-description">对象和类的概念是面系那个对象编程的基础，因此了解这两个概念才能继续Java学习哦！</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【基本数据类型】</span>
+                        <p class="know-description">内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【变量类型】</span>
+                        <p class="know-description">在Java语言中，所有的变量在使用前必须声明。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【修饰符】</span>
+                        <p class="know-description">修饰符用来定义类、方法或者变量，通常放在语句的最前端。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【运算符】</span>
+                        <p class="know-description">计算机的最基本用途之一就是执行数学运算，作为一门计算机语言，Java也提供了一套丰富的运算符来操纵变量。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【循环结构】</span>
+                        <p class="know-description">顺序结构的程序语句只能被执行一次。如果您想要同样的操作执行多次,，就需要使用循环结构。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【数组】</span>
+                        <p class="know-description">数组对于每一门编程语言来说都是重要的数据结构之一，当然不同语言对数组的实现及处理也不尽相同。</p>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="knowledgePanel">
+                        <img src="img/knowIcon/helloworld.png" class="konw-icon"><span class="knowledgeName">【正则表达式】</span>
+                        <p class="know-description">正则表达式定义了字符串的模式。正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+        element.init();
+        //…
+    });
+</script>
+</html>
